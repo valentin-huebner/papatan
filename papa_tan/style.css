@@ -41,7 +41,7 @@ header {
   background-color: var(--primary);
   color: var(--text-light);
   text-align: center;
-  padding: 1.5em 0 0.5em 0; /* slightly reduce bottom padding */
+  padding: 18px;
   letter-spacing: 1px;
 }
 .header-container {
@@ -92,6 +92,7 @@ header {
 
 .hero-logo {
   text-align: center;
+  flex-shrink: 0;
 }
 
 .hero-logo img {
@@ -102,10 +103,9 @@ header {
 }
 
 
-.main-nav{
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+.main-nav {
+  flex-grow: 1;
+  flex-shrink: 0;
 }
 
 nav ul {
@@ -131,6 +131,32 @@ nav a {
 
 nav a:hover {
   color: var(--accent);
+}
+
+.spacer-end {
+  width: 150px; /* same width as logo */
+  flex-shrink: 1;
+}
+
+@media (max-width: 500px) {
+  header {
+    padding: 0;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: flex-end;
+    padding-inline-end: 32px;
+  }
+  nav li {
+    display: flex;
+    align-items: center;
+    height: 48px;
+  }
+  
+  .spacer-end {
+    display: none;
+  }
 }
 
 
