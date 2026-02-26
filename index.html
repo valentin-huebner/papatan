@@ -1,7 +1,71 @@
+<!-- index.html -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Papa Tan Restaurant</title>
+<link rel="stylesheet" href="style.css">
+</head>
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+
+
+
+<header>
+  <div class="header-container">
+  <div class="hero-logo">
+    <img src="./img/papa_tan_bw.jpeg" alt="Papa Tan Logo">
+  </div>
+  <nav class="main-nav">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="spacer-end"></div>
+  </div>
+</header>
+
+<div class="main">
+  <div class="hero-text">
+    <h1 class="title">Papa Tan</h1>
+    <p class="subtitle">Austrian and Asian Restaurant in the 20th District.</p>
+  </div>
+
+  <div class="slideshow-container">
+    <img class="slide" src="./img/carousel-1.jpg" alt="Restaurant view 1">
+    <img class="slide" src="./img/carousel-2.jpg" alt="Restaurant view 2">
+    <img class="slide" src="./img/carousel-3.jpg" alt="Restaurant view 3">
+  </div>
+</div>
+
+<section class="contact" id="contact">
+  <h2>Contact Us</h2>
+  <p>Papa Tan Restaurant</p>
+  <p>123 Vienna Street, 1010 Vienna, Austria</p>
+  <p>Phone: +43 1 234 5678</p>
+  <p>Email: contact@papatan.at</p>
+</section>
+
+
+
+<script>
+let slideIndex = 0;
+showSlides();
+
+
+function showSlides() {
+const slides = document.getElementsByClassName("slide");
+for (let i = 0; i < slides.length; i++) {
+slides[i].style.display = "none";
+}
+slideIndex++;
+if (slideIndex > slides.length) { slideIndex = 1 }
+slides[slideIndex - 1].style.display = "block";
+setTimeout(showSlides, 3000); // Change image every 3 seconds
+}
+</script>
 </body>
 </html>
+
