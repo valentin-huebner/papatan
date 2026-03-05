@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Papa Tan Speisekarte</title>
+<title data-i18n="meta.title">Papa Tan Speisekarte</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,118 +11,232 @@
 <header>
   <nav>
     <ul>
-      <li><a href="index.html">Startseite</a></li>
-      <li><a href="menu.html">Speisekarte</a></li>
-      <li><a href="index.html#contact">Kontakt</a></li>
+      <li><a href="index.html" data-i18n="nav.home">Startseite</a></li>
+      <li><a href="menu.html" data-i18n="nav.menu">Speisekarte</a></li>
+      <li><a href="index.html#contact" data-i18n="nav.contact">Kontakt</a></li>
+      <li><a href="#" class="language-link">English</a></li>
     </ul>
   </nav>
 </header>
 
 <div class="menu-section">
-  <h2>Suppen</h2>
+  <h2 data-i18n="sections.soups">Suppen</h2>
   <div class="menu-item">
-    <span class="name">Frittatensuppe <sup>ACGL</sup></span>
+    <span class="name"><span data-i18n="items.frittaten.name">Frittatensuppe</span> <sup>ACGL</sup></span>
     <span class="price">4.9</span>
   </div>
   <div class="menu-item">
-    <span class="name">Kürbiscremesuppe <sup>Vegan</sup></span>
+    <span class="name"><span data-i18n="items.pumpkinSoup.name">Kürbiscremesuppe</span> <sup>Vegan</sup></span>
     <span class="price">5.9</span>
   </div>
 
-  <h2>Vorspeisen</h2>
+  <h2 data-i18n="sections.starters">Vorspeisen</h2>
   <div class="menu-item">
-    <span class="name">Rindertatar <sup>ABCDGMO</sup></span>
+    <span class="name"><span data-i18n="items.beefTartar.name">Rindertatar</span> <sup>ABCDGMO</sup></span>
     <span class="price">17.9</span>
   </div>
   <div class="menu-item">
-    <span class="name">Langos mit Huhn <sup>AGDNO</sup></span>
+    <span class="name"><span data-i18n="items.langosChicken.name">Langos mit Huhn</span> <sup>AGDNO</sup></span>
     <span class="price">7.9</span>
   </div>
   <div class="menu-item">
-    <span class="name">Langos mit Ente/Rind <sup>AGDNO</sup></span>
+    <span class="name"><span data-i18n="items.langosDuckBeef.name">Langos mit Ente/Rind</span> <sup>AGDNO</sup></span>
     <span class="price">9.6</span>
   </div>
   <div class="menu-item">
-    <span class="name">Langos mit Lachs <sup>AGDNO</sup></span>
+    <span class="name"><span data-i18n="items.langosSalmon.name">Langos mit Lachs</span> <sup>AGDNO</sup></span>
     <span class="price">9.9</span>
   </div>
 
   <!-- Fortsetzung Vorspeisen -->
   <div class="menu-item">
-    <span class="name">Sommerrollen mit Huhn <sup>ADEO</sup></span>
+    <span class="name"><span data-i18n="items.summerRollChicken.name">Sommerrollen mit Huhn</span> <sup>ADEO</sup></span>
     <span class="price">5.7</span>
   </div>
   <div class="menu-item">
-    <span class="name">Sommerrollen mit Ente</span>
+    <span class="name" data-i18n="items.summerRollDuck.name">Sommerrollen mit Ente</span>
     <span class="price">7.6</span>
   </div>
   <div class="menu-item">
-    <span class="name">Sommerrollen mit Lachs</span>
+    <span class="name" data-i18n="items.summerRollSalmon.name">Sommerrollen mit Lachs</span>
     <span class="price">7.9</span>
   </div>
   <div class="menu-item">
-    <span class="name">Sommerrollen mit Rind</span>
+    <span class="name" data-i18n="items.summerRollBeef.name">Sommerrollen mit Rind</span>
     <span class="price">5.9</span>
   </div>
   <div class="menu-item">
-    <span class="name">Sommerrollen mit Avocado <sup>Vegan</sup></span>
+    <span class="name"><span data-i18n="items.summerRollAvocado.name">Sommerrollen mit Avocado</span> <sup>Vegan</sup></span>
     <span class="price">6.9</span>
   </div>
   <div class="menu-item">
-    <span class="name">Frühlingsrollen Klassisch <sup>AC</sup></span>
+    <span class="name"><span data-i18n="items.springRollClassic.name">Frühlingsrollen Klassisch</span> <sup>AC</sup></span>
     <span class="price">6.3</span>
   </div>
   <div class="menu-item">
-    <span class="name">Frühlingsrollen Vegan <sup>A</sup></span>
+    <span class="name"><span data-i18n="items.springRollVegan.name">Frühlingsrollen Vegan</span> <sup>A</sup></span>
     <span class="price">5.3</span>
   </div>
 
-  <h2>Desserts</h2>
+  <h2 data-i18n="sections.desserts">Desserts</h2>
   <div class="menu-item">
-    <span class="name">Kaiserschmarrn <sup>ACG</sup></span>
+    <span class="name"><span data-i18n="items.kaiserschmarrn.name">Kaiserschmarrn</span> <sup>ACG</sup></span>
     <span class="price">8.9</span>
-    <p>mit Marillenröster</p>
+    <p data-i18n="items.kaiserschmarrn.desc">mit Marillenröster</p>
   </div>
   <div class="menu-item">
-    <span class="name">Pochierte Birne <sup>Vegan, H</sup></span>
+    <span class="name"><span data-i18n="items.poachedPear.name">Pochierte Birne</span> <sup>Vegan, H</sup></span>
     <span class="price">9.9</span>
-    <p>mit karamellisierten Haselnüssen, Maronenmousse und Vanilletuile</p>
+    <p data-i18n="items.poachedPear.desc">mit karamellisierten Haselnüssen, Maronenmousse und Vanilletuile</p>
   </div>
   <div class="menu-item">
-    <span class="name">Vietnamesische Mochi <sup>E, Vegan</sup></span>
+    <span class="name"><span data-i18n="items.mochi.name">Vietnamesische Mochi</span> <sup>E, Vegan</sup></span>
     <span class="price">9.9</span>
-    <p>mit Kokosnusssauce und Erdnüssen</p>
+    <p data-i18n="items.mochi.desc">mit Kokosnusssauce und Erdnüssen</p>
   </div>
 
-  <h2>Hauptgerichte</h2>
+  <h2 data-i18n="sections.mainCourses">Hauptgerichte</h2>
   <div class="menu-item">
-    <span class="name">Schweineschnitzel <sup>ACG</sup></span>
+    <span class="name"><span data-i18n="items.porkSchnitzel.name">Schweineschnitzel</span> <sup>ACG</sup></span>
     <span class="price">15.9</span>
-    <p>mit Erdäpfelsalat</p>
+    <p data-i18n="items.porkSchnitzel.desc">mit Erdäpfelsalat</p>
   </div>
   <div class="menu-item">
-    <span class="name">Kalbsschnitzel <sup>ACG</sup></span>
+    <span class="name"><span data-i18n="items.vealSchnitzel.name">Kalbsschnitzel</span> <sup>ACG</sup></span>
     <span class="price">25.9</span>
-    <p>mit Erdäpfelsalat</p>
+    <p data-i18n="items.vealSchnitzel.desc">mit Erdäpfelsalat</p>
   </div>
   <div class="menu-item">
-    <span class="name">Hühnerschnitzel <sup>ACG</sup></span>
+    <span class="name"><span data-i18n="items.chickenSchnitzel.name">Hühnerschnitzel</span> <sup>ACG</sup></span>
     <span class="price">19.9</span>
-    <p>mit Caesar Salat</p>
+    <p data-i18n="items.chickenSchnitzel.desc">mit Caesar Salat</p>
   </div>
   <div class="menu-item">
-    <span class="name">Gegrilltes Huhn <sup>AEFGM</sup></span>
+    <span class="name"><span data-i18n="items.grilledChicken.name">Gegrilltes Huhn</span> <sup>AEFGM</sup></span>
     <span class="price">23.9</span>
-    <p>mit Erdnusssauce, Kokosnuss-Klebreis und Blattsalat (Vietnamesische Spezialität)</p>
+    <p data-i18n="items.grilledChicken.desc">mit Erdnusssauce, Kokosnuss-Klebreis und Blattsalat (Vietnamesische Spezialität)</p>
   </div>
   <div class="menu-item">
-    <span class="name">Teriyaki Lachs <sup>ACEFGM</sup></span>
+    <span class="name"><span data-i18n="items.teriyakiSalmon.name">Teriyaki Lachs</span> <sup>ACEFGM</sup></span>
     <span class="price">19.9</span>
-    <p>Filet mit Reis und Caesar Salat</p>
+    <p data-i18n="items.teriyakiSalmon.desc">Filet mit Reis und Caesar Salat</p>
   </div>
 </div>
 
 
+<script>
+const translations = {
+de: {
+meta: { title: "Papa Tan Speisekarte" },
+nav: { home: "Startseite", menu: "Speisekarte", contact: "Kontakt" },
+sections: {
+soups: "Suppen",
+starters: "Vorspeisen",
+desserts: "Desserts",
+mainCourses: "Hauptgerichte"
+},
+items: {
+frittaten: { name: "Frittatensuppe" },
+pumpkinSoup: { name: "Kürbiscremesuppe" },
+beefTartar: { name: "Rindertatar" },
+langosChicken: { name: "Langos mit Huhn" },
+langosDuckBeef: { name: "Langos mit Ente/Rind" },
+langosSalmon: { name: "Langos mit Lachs" },
+summerRollChicken: { name: "Sommerrollen mit Huhn" },
+summerRollDuck: { name: "Sommerrollen mit Ente" },
+summerRollSalmon: { name: "Sommerrollen mit Lachs" },
+summerRollBeef: { name: "Sommerrollen mit Rind" },
+summerRollAvocado: { name: "Sommerrollen mit Avocado" },
+springRollClassic: { name: "Frühlingsrollen Klassisch" },
+springRollVegan: { name: "Frühlingsrollen Vegan" },
+kaiserschmarrn: { name: "Kaiserschmarrn", desc: "mit Marillenröster" },
+poachedPear: { name: "Pochierte Birne", desc: "mit karamellisierten Haselnüssen, Maronenmousse und Vanilletuile" },
+mochi: { name: "Vietnamesische Mochi", desc: "mit Kokosnusssauce und Erdnüssen" },
+porkSchnitzel: { name: "Schweineschnitzel", desc: "mit Erdäpfelsalat" },
+vealSchnitzel: { name: "Kalbsschnitzel", desc: "mit Erdäpfelsalat" },
+chickenSchnitzel: { name: "Hühnerschnitzel", desc: "mit Caesar Salat" },
+grilledChicken: { name: "Gegrilltes Huhn", desc: "mit Erdnusssauce, Kokosnuss-Klebreis und Blattsalat (Vietnamesische Spezialität)" },
+teriyakiSalmon: { name: "Teriyaki Lachs", desc: "Filet mit Reis und Caesar Salat" }
+}
+},
+en: {
+meta: { title: "Papa Tan Menu" },
+nav: { home: "Home", menu: "Menu", contact: "Contact" },
+sections: {
+soups: "Soups",
+starters: "Starters",
+desserts: "Desserts",
+mainCourses: "Main Courses"
+},
+items: {
+frittaten: { name: "Pancake Strip Soup" },
+pumpkinSoup: { name: "Pumpkin Cream Soup" },
+beefTartar: { name: "Beef Tartare" },
+langosChicken: { name: "Langos with Chicken" },
+langosDuckBeef: { name: "Langos with Duck/Beef" },
+langosSalmon: { name: "Langos with Salmon" },
+summerRollChicken: { name: "Summer Rolls with Chicken" },
+summerRollDuck: { name: "Summer Rolls with Duck" },
+summerRollSalmon: { name: "Summer Rolls with Salmon" },
+summerRollBeef: { name: "Summer Rolls with Beef" },
+summerRollAvocado: { name: "Summer Rolls with Avocado" },
+springRollClassic: { name: "Classic Spring Rolls" },
+springRollVegan: { name: "Vegan Spring Rolls" },
+kaiserschmarrn: { name: "Kaiserschmarrn", desc: "with apricot compote" },
+poachedPear: { name: "Poached Pear", desc: "with caramelized hazelnuts, chestnut mousse and vanilla tuile" },
+mochi: { name: "Vietnamese Mochi", desc: "with coconut sauce and peanuts" },
+porkSchnitzel: { name: "Pork Schnitzel", desc: "with potato salad" },
+vealSchnitzel: { name: "Veal Schnitzel", desc: "with potato salad" },
+chickenSchnitzel: { name: "Chicken Schnitzel", desc: "with Caesar salad" },
+grilledChicken: { name: "Grilled Chicken", desc: "with peanut sauce, coconut sticky rice and leaf salad (Vietnamese specialty)" },
+teriyakiSalmon: { name: "Teriyaki Salmon", desc: "fillet with rice and Caesar salad" }
+}
+}
+};
+
+function getTranslation(lang, key) {
+return key.split(".").reduce((value, part) => (value ? value[part] : undefined), translations[lang]);
+}
+
+function applyLanguage(lang) {
+const selectedLanguage = translations[lang] ? lang : "de";
+document.documentElement.lang = selectedLanguage;
+
+document.querySelectorAll("[data-i18n]").forEach((element) => {
+const key = element.getAttribute("data-i18n");
+const value = getTranslation(selectedLanguage, key);
+if (!value) {
+return;
+}
+element.textContent = value;
+});
+
+const titleValue = getTranslation(selectedLanguage, "meta.title");
+if (titleValue) {
+document.title = titleValue;
+}
+
+const languageLink = document.querySelector(".language-link");
+if (languageLink) {
+languageLink.textContent = selectedLanguage === "de" ? "English" : "Deutsch";
+}
+
+localStorage.setItem("siteLanguage", selectedLanguage);
+}
+
+const savedLanguage = localStorage.getItem("siteLanguage") || "de";
+applyLanguage(savedLanguage);
+
+const languageLink = document.querySelector(".language-link");
+if (languageLink) {
+languageLink.addEventListener("click", (event) => {
+event.preventDefault();
+const currentLanguage = localStorage.getItem("siteLanguage") || "de";
+const nextLanguage = currentLanguage === "de" ? "en" : "de";
+applyLanguage(nextLanguage);
+});
+}
+</script>
+
 </body>
 </html>
-
