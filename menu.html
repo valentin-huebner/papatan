@@ -7,6 +7,14 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="promo-modal hidden" id="promo-modal" aria-hidden="true">
+  <div class="promo-modal__backdrop" data-close-promo></div>
+  <div class="promo-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="promo-title">
+    <button class="promo-modal__close" type="button" aria-label="Popup schließen" data-close-promo>&times;</button>
+    <h2 class="promo-modal__title" id="promo-title" data-i18n="promo.title">Papa Tan</h2>
+    <p class="promo-modal__text" data-promo-message></p>
+  </div>
+</div>
 
 <header>
   <nav>
@@ -229,11 +237,28 @@
   </div>
 </div>
 
+<footer class="contact">
+  <p data-i18n="contact.name">Papa Tan Restaurant</p>
+  <p data-i18n="contact.address">Liechtensteinstraße 23, 1090 Wien</p>
+  <p><span data-i18n="contact.phoneLabel">Telefon:</span> <a href="tel:+436605553879">+43 660 5553879</a></p>
+  <p><span data-i18n="contact.emailLabel">Email:</span> <a href="mailto:hallo@papatanrestaurant.at">hallo@papatanrestaurant.at</a></p>
+  <p><span data-i18n="contact.hoursLabel">Öffnungszeiten:</span> <span data-i18n="contact.hoursValue">Mo-So 12:00–22:00</span></p>
+</footer>
+
 <script>
 const translations = {
 de: {
 meta: { title: "Papa Tan Speisekarte" },
 nav: { home: "Startseite", menu: "Speisekarte", contact: "Kontakt" },
+promo: { title: "Papa Tan" },
+contact: {
+name: "Papa Tan Restaurant",
+address: "Liechtensteinstraße 23, 1090 Wien",
+phoneLabel: "Telefon:",
+emailLabel: "Email:",
+hoursLabel: "Öffnungszeiten:",
+hoursValue: "Mo-So 12:00–22:00"
+},
 sections: {
 soups: "Suppen",
 starters: "Vorspeisen",
@@ -294,6 +319,15 @@ fetaPastry: { name: "Schafkäse-Teigtaschen", desc: "mit Parmesansauce und grün
 en: {
 meta: { title: "Papa Tan Menu" },
 nav: { home: "Home", menu: "Menu", contact: "Contact" },
+promo: { title: "Papa Tan" },
+contact: {
+name: "Papa Tan Restaurant",
+address: "Liechtensteinstraße 23, 1090 Vienna",
+phoneLabel: "Phone:",
+emailLabel: "Email:",
+hoursLabel: "Opening hours:",
+hoursValue: "Mon-Sun 12:00–22:00"
+},
 sections: {
 soups: "Soups",
 starters: "Appetizers",
@@ -381,10 +415,68 @@ languageLink.textContent = selectedLanguage === "de" ? "English" : "Deutsch";
 }
 
 localStorage.setItem("siteLanguage", selectedLanguage);
+updatePromoMessage(selectedLanguage);
+}
+
+function getViennaDateString() {
+const formatter = new Intl.DateTimeFormat("en-CA", {
+timeZone: "Europe/Vienna",
+year: "numeric",
+month: "2-digit",
+day: "2-digit"
+});
+
+return formatter.format(new Date());
+}
+
+function getPromoMessage(lang) {
+const currentDate = getViennaDateString();
+const isAfterOpeningDay = currentDate >= "2026-03-16";
+const intro = lang === "en"
+? (isAfterOpeningDay ? "Grand opening!" : "Opening on March 15 at 17:30!")
+: (isAfterOpeningDay ? "Neueröffnung!" : "Eröffnung am 15. März um 17:30!");
+const details = lang === "en"
+? "From March 15-22, 50% off all main courses. We look forward to seeing you!"
+: "Von 15.–22. März –50% auf alle Hauptspeisen. Wir freuen uns auf euch!";
+
+return `${intro} ${details}`;
+}
+
+function updatePromoMessage(lang) {
+const messageElement = document.querySelector("[data-promo-message]");
+if (!messageElement) {
+return;
+}
+
+messageElement.textContent = getPromoMessage(lang);
+}
+
+function setupPromoModal() {
+const modal = document.getElementById("promo-modal");
+if (!modal) {
+return;
+}
+
+const currentDate = getViennaDateString();
+if (currentDate > "2026-03-22") {
+modal.remove();
+return;
+}
+
+modal.classList.remove("hidden");
+modal.setAttribute("aria-hidden", "false");
+
+modal.querySelectorAll("[data-close-promo]").forEach((element) => {
+element.addEventListener("click", () => {
+modal.classList.add("hidden");
+modal.setAttribute("aria-hidden", "true");
+});
+});
 }
 
 const savedLanguage = localStorage.getItem("siteLanguage") || "de";
 applyLanguage(savedLanguage);
+setupPromoModal();
 
 const languageLink = document.querySelector(".language-link");
 if (languageLink) {
