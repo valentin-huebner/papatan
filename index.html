@@ -29,6 +29,7 @@
       <li><a href="index.html" data-i18n="nav.home">Startseite</a></li>
       <li><a href="menu.html" data-i18n="nav.menu">Speisekarte</a></li>
       <li><a href="#contact" data-i18n="nav.contact">Kontakt</a></li>
+      <li><a href="https://widget.thefork.com/447f8758-ceaf-4e52-9915-0d902c6259da" target="_blank" rel="noopener noreferrer" class="nav-reserve-link" data-i18n="nav.reserve">Tisch reservieren</a></li>
       <li><a href="#" class="language-link">English</a></li>
     </ul>
   </nav>
@@ -65,6 +66,17 @@
   <p><span data-i18n="contact.hoursLabel">Öffnungszeiten:</span> <span data-i18n="contact.hoursValue">Mo-So 12:00–22:00</span></p>
 </section>
 
+<footer class="site-footer">
+  <p class="site-footer__text" data-i18n="footer.text">Reservieren Sie Ihren Tisch bequem online über TheFork.</p>
+  <a
+    class="button footer-reserve-button"
+    href="https://widget.thefork.com/447f8758-ceaf-4e52-9915-0d902c6259da"
+    target="_blank"
+    rel="noopener noreferrer"
+    data-i18n="footer.reserve"
+  >Tisch reservieren</a>
+</footer>
+
 
 
 <script>
@@ -74,7 +86,7 @@ showSlides();
 const translations = {
 de: {
 meta: { title: "Papa Tan Restaurant" },
-nav: { home: "Startseite", menu: "Speisekarte", contact: "Kontakt" },
+nav: { home: "Startseite", menu: "Speisekarte", contact: "Kontakt", reserve: "Tisch reservieren" },
 promo: { title: "Papa Tan" },
 hero: {
 title: "Papa Tan",
@@ -93,11 +105,15 @@ phoneLabel: "Telefon:",
 emailLabel: "Email:",
 hoursLabel: "Öffnungszeiten:",
 hoursValue: "Mo-So 12:00–22:00"
+},
+footer: {
+text: "Reservieren Sie Ihren Tisch bequem online über TheFork.",
+reserve: "Tisch reservieren"
 }
 },
 en: {
 meta: { title: "Papa Tan Restaurant" },
-nav: { home: "Home", menu: "Menu", contact: "Contact" },
+nav: { home: "Home", menu: "Menu", contact: "Contact", reserve: "Reserve a table" },
 promo: { title: "Papa Tan" },
 hero: {
 title: "Papa Tan",
@@ -116,6 +132,10 @@ phoneLabel: "Phone:",
 emailLabel: "Email:",
 hoursLabel: "Opening hours:",
 hoursValue: "Mon-Sun 12:00–22:00"
+},
+footer: {
+text: "Reserve your table online in just a few clicks via TheFork.",
+reserve: "Reserve a table"
 }
 }
 };
