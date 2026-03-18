@@ -117,7 +117,7 @@ header {
   align-items: center;
   z-index: 1;
   padding: 40px;
-  gap: 40px;
+  gap: 28px;
 }
 
 .hero-text .title {
@@ -140,6 +140,20 @@ header {
   padding: 0.3em 0.6em;
   margin: 0;
   border-radius: 6px;
+}
+
+.reserve-button {
+  font-size: 1.2rem;
+  padding: 0.95em 1.8em;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #f0a15b 0%, #d98e5f 100%);
+  box-shadow: 0 14px 28px rgba(46, 26, 15, 0.28);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.reserve-button:hover {
+  background: linear-gradient(135deg, #8f4611 0%, #6f3307 100%);
 }
 
 
@@ -210,6 +224,29 @@ nav a:hover {
     display: flex;
     align-items: center;
     height: 48px;
+  }
+
+  .hero-text {
+    width: calc(100% - 2rem);
+    padding: 24px 16px;
+    gap: 18px;
+  }
+
+  .hero-text .title {
+    font-size: 2.5rem;
+  }
+
+  .hero-text .subtitle {
+    max-width: 100%;
+    font-size: 1.1rem;
+  }
+
+  .reserve-button {
+    width: 100%;
+    max-width: 320px;
+    text-align: center;
+    font-size: 1rem;
+    padding: 0.95em 1.2em;
   }
   
   .spacer-end {
