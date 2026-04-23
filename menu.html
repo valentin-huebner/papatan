@@ -279,6 +279,9 @@ de: {
 meta: { title: "Papa Tan Speisekarte" },
 nav: { home: "Startseite", menu: "Speisekarte", contact: "Kontakt", reserve: "Tisch reservieren" },
 promo: { title: "Papa Tan" },
+popup: {
+message: "Papa Tan ist leider wegen eines Brandschadens vorübergehend geschlossen."
+},
 contact: {
 name: "Papa Tan Restaurant",
 address: "Liechtensteinstraße 23, 1090 Wien",
@@ -355,6 +358,9 @@ en: {
 meta: { title: "Papa Tan Menu" },
 nav: { home: "Home", menu: "Menu", contact: "Contact", reserve: "Reserve a table" },
 promo: { title: "Papa Tan" },
+popup: {
+message: "Papa Tan is temporarily closed due to fire damage."
+},
 contact: {
 name: "Papa Tan Restaurant",
 address: "Liechtensteinstraße 23, 1090 Vienna",
@@ -460,48 +466,21 @@ localStorage.setItem("siteLanguage", selectedLanguage);
 updatePromoMessage(selectedLanguage);
 }
 
-function getViennaDateString() {
-const formatter = new Intl.DateTimeFormat("en-CA", {
-timeZone: "Europe/Vienna",
-year: "numeric",
-month: "2-digit",
-day: "2-digit"
-});
-
-return formatter.format(new Date());
-}
-
-function getPromoMessage(lang) {
-const currentDate = getViennaDateString();
-const isAfterOpeningDay = currentDate >= "2026-03-16";
-const intro = lang === "en"
-? (isAfterOpeningDay ? "Grand opening!" : "Opening on March 15 at 17:30!")
-: (isAfterOpeningDay ? "Neueröffnung!" : "Eröffnung am 15. März um 17:30!");
-const details = lang === "en"
-? "From March 15-22, 50% off all main courses. We look forward to seeing you!"
-: "Von 15.–22. März –50% auf alle Hauptspeisen. Wir freuen uns auf euch!";
-
-return `${intro} ${details}`;
-}
-
 function updatePromoMessage(lang) {
 const messageElement = document.querySelector("[data-promo-message]");
 if (!messageElement) {
 return;
 }
 
-messageElement.textContent = getPromoMessage(lang);
+const message = getTranslation(lang, "popup.message");
+if (message) {
+messageElement.textContent = message;
+}
 }
 
 function setupPromoModal() {
 const modal = document.getElementById("promo-modal");
 if (!modal) {
-return;
-}
-
-const currentDate = getViennaDateString();
-if (currentDate > "2026-03-22") {
-modal.remove();
 return;
 }
 
