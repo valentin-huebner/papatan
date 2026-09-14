@@ -12,11 +12,16 @@
   <div class="promo-modal__backdrop" data-close-promo></div>
   <div class="promo-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="promo-title">
     <button class="promo-modal__close" type="button" aria-label="Popup schließen" data-close-promo>&times;</button>
-    <h2 class="promo-modal__title" id="promo-title" data-i18n="promo.title">Papa Tan</h2>
+    <p class="promo-modal__eyebrow" data-i18n="promo.eyebrow">Wir sind zurück</p>
+    <h2 class="promo-modal__title" id="promo-title" data-i18n="promo.title">Wiedereröffnung</h2>
     <p class="promo-modal__text" data-promo-message></p>
   </div>
 </div>
 
+<aside class="reopening-banner" role="status" aria-live="polite">
+  <span class="reopening-banner__icon" aria-hidden="true">✦</span>
+  <p data-promo-message>Feierliche Wiedereröffnung am 1. Oktober 2026! Wir freuen uns auf Sie!</p>
+</aside>
 
 
 <header>
@@ -87,9 +92,9 @@ const translations = {
 de: {
 meta: { title: "Papa Tan Restaurant" },
 nav: { home: "Startseite", menu: "Speisekarte", contact: "Kontakt", reserve: "Tisch reservieren" },
-promo: { title: "Papa Tan" },
+promo: { eyebrow: "Wir sind zurück", title: "Wiedereröffnung" },
 popup: {
-message: "Papa Tan ist leider wegen eines Brandschadens vorübergehend geschlossen."
+message: "Feierliche Wiedereröffnung am 1. Oktober 2026! Wir freuen uns auf Sie!"
 },
 hero: {
 title: "Papa Tan",
@@ -117,9 +122,9 @@ reserve: "Tisch reservieren"
 en: {
 meta: { title: "Papa Tan Restaurant" },
 nav: { home: "Home", menu: "Menu", contact: "Contact", reserve: "Reserve a table" },
-promo: { title: "Papa Tan" },
+promo: { eyebrow: "We're back", title: "Grand reopening" },
 popup: {
-message: "Papa Tan is temporarily closed due to fire damage."
+message: "Grand reopening on October 1, 2026! We look forward to welcoming you!"
 },
 hero: {
 title: "Papa Tan",
@@ -185,14 +190,16 @@ updatePromoMessage(selectedLanguage);
 }
 
 function updatePromoMessage(lang) {
-const messageElement = document.querySelector("[data-promo-message]");
-if (!messageElement) {
+const messageElements = document.querySelectorAll("[data-promo-message]");
+if (!messageElements.length) {
 return;
 }
 
 const message = getTranslation(lang, "popup.message");
 if (message) {
+messageElements.forEach((messageElement) => {
 messageElement.textContent = message;
+});
 }
 }
 
