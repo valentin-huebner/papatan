@@ -214,8 +214,15 @@ if (!modal) {
 return;
 }
 
+const promoStorageKey = "promoModalLastShown";
+const today = new Date().toLocaleDateString("en-CA");
+if (localStorage.getItem(promoStorageKey) === today) {
+return;
+}
+
 modal.classList.remove("hidden");
 modal.setAttribute("aria-hidden", "false");
+localStorage.setItem(promoStorageKey, today);
 
 modal.querySelectorAll("[data-close-promo]").forEach((element) => {
 element.addEventListener("click", () => {
