@@ -536,3 +536,38 @@ button, a.button {
 button:hover, a.button:hover {
   background-color: var(--primary);
 }
+
+.daily-menu {
+  max-width: 800px;
+  min-height: 38vh;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.daily-menu h1 {
+  margin: 0 0 0.4rem;
+  color: var(--primary);
+}
+
+.daily-menu__week {
+  margin: 0 0 2rem;
+  color: #6e4a35;
+  font-weight: 600;
+}
+
+.daily-menu__content {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  white-space: pre-wrap;
+  text-align: left;
+  line-height: 1.75;
+}
+
+.daily-menu__status {
+  color: #6e4a35;
+}

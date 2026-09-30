@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tagesteller | Papa Tan</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <nav>
+    <ul>
+      <li><a href="index.html" data-i18n="nav.home">Startseite</a></li>
+      <li><a href="menu.html" data-i18n="nav.menu">Speisekarte</a></li>
+      <li><a href="tagesteller.html" data-i18n="nav.dailyMenu">Tagesteller</a></li>
+      <li><a href="index.html#contact" data-i18n="nav.contact">Kontakt</a></li>
+      <li><a href="https://widget.thefork.com/447f8758-ceaf-4e52-9915-0d902c6259da" target="_blank" rel="noopener noreferrer" class="nav-reserve-link" data-i18n="nav.reserve">Tisch reservieren</a></li>
+      <li><a href="#" class="language-link">English</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main class="daily-menu">
+  <h1 data-i18n="heading">Tagesteller</h1>
+  <p class="daily-menu__week" id="week-label"></p>
+  <div class="daily-menu__content daily-menu__status" id="daily-menu-content" aria-live="polite" data-i18n="loading">Tagesteller wird geladen …</div>
+</main>
+
+<footer class="contact">
+  <p>Papa Tan Restaurant</p>
+  <p>Liechtensteinstraße 23, 1090 Wien</p>
+  <p><span data-i18n="phone">Telefon:</span> <a href="tel:+436605553879">+43 660 5553879</a></p>
+</footer>
+
+<script>
+const translations = {
+  de: {
+    title: "Tagesteller | Papa Tan", heading: "Tagesteller", loading: "Tagesteller wird geladen …",
+    unavailable: "Für diese Woche ist derzeit kein Tagesteller verfügbar.", error: "Der Tagesteller konnte gerade nicht geladen werden.",
+    nav: { home: "Startseite", menu: "Speisekarte", dailyMenu: "Tagesteller", contact: "Kontakt", reserve: "Tisch reservieren" }, phone: "Telefon:"
+  },
+  en: {
+    title: "Daily menu | Papa Tan", heading: "Daily menu", loading: "Loading daily menu …",
+    unavailable: "There is currently no daily menu for this week.", error: "The daily menu could not be loaded right now.",
+    nav: { home: "Home", menu: "Menu", dailyMenu: "Daily menu", contact: "Contact", reserve: "Reserve a table" }, phone: "Phone:"
+  }
+};
+
+function isoWeek(date) {
+  const d = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
+  const day = d.getUTCDay() || 7;
+  d.setUTCDate(d.getUTCDate() + 4 - day);
+  const yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
+  return [d.getUTCFullYear(), Math.ceil((((d - yearStart) / 86400000) + 1) / 7)];
+}
+
+async function loadDailyMenu(lang) {
+  const [year, week] = isoWeek(new Date());
+  const weekLabel = document.getElementById("week-label");
+  weekLabel.textContent = lang === "de" ? `Kalenderwoche ${week}, ${year}` : `Calendar week ${week}, ${year}`;
+  const content = document.getElementById("daily-menu-content");
+  content.textContent = translations[lang].loading;
+  content.classList.add("daily-menu__status");
+  try {
+    const response = await fetch(`https://papatan.vmh.name/api/tagesteller?year=${year}&week=${week}`);
+    if (!response.ok) throw new Error("Request failed");
+    const data = await response.json();
+    const text = data[lang] || "";
+    content.textContent = text.trim() || translations[lang].unavailable;
+  } catch (error) {
+    content.textContent = translations[lang].error;
+  }
+  content.classList.remove("daily-menu__status");
+}
+
+function applyLanguage(lang) {
+  const selected = translations[lang] ? lang : "de";
+  document.documentElement.lang = selected;
+  document.title = translations[selected].title;
+  document.querySelectorAll("[data-i18n]").forEach((element) => {
+    const value = element.dataset.i18n.split(".").reduce((obj, key) => obj && obj[key], translations[selected]);
+    if (value) element.textContent = value;
+  });
+  document.querySelector(".language-link").textContent = selected === "de" ? "English" : "Deutsch";
+  localStorage.setItem("siteLanguage", selected);
+  loadDailyMenu(selected);
+}
+
+applyLanguage(localStorage.getItem("siteLanguage") || "de");
+document.querySelector(".language-link").addEventListener("click", (event) => {
+  event.preventDefault();
+  applyLanguage((localStorage.getItem("siteLanguage") || "de") === "de" ? "en" : "de");
+});
+</script>
+</body>
+</html>
