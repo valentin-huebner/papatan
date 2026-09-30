@@ -54,10 +54,24 @@ function isoWeek(date) {
   return [d.getUTCFullYear(), Math.ceil((((d - yearStart) / 86400000) + 1) / 7)];
 }
 
+function formatWeekRange(year, week, lang) {
+  const jan4 = new Date(Date.UTC(year, 0, 4));
+  const monday = new Date(jan4);
+  monday.setUTCDate(jan4.getUTCDate() - ((jan4.getUTCDay() || 7) - 1) + ((week - 1) * 7));
+  const sunday = new Date(monday);
+  sunday.setUTCDate(monday.getUTCDate() + 6);
+  if (lang === "de") {
+    const months = ["Jan.", "Feb.", "März", "Apr.", "Mai", "Juni", "Juli", "Aug.", "Sep.", "Okt.", "Nov.", "Dez."];
+    return `${monday.getUTCDate()}. ${months[monday.getUTCMonth()]} – ${sunday.getUTCDate()}. ${months[sunday.getUTCMonth()]}`;
+  }
+  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  return `${months[monday.getUTCMonth()]} ${monday.getUTCDate()} – ${months[sunday.getUTCMonth()]} ${sunday.getUTCDate()}`;
+}
+
 async function loadDailyMenu(lang) {
   const [year, week] = isoWeek(new Date());
   const weekLabel = document.getElementById("week-label");
-  weekLabel.textContent = lang === "de" ? `Kalenderwoche ${week}, ${year}` : `Calendar week ${week}, ${year}`;
+  weekLabel.textContent = formatWeekRange(year, week, lang);
   const content = document.getElementById("daily-menu-content");
   content.textContent = translations[lang].loading;
   content.classList.add("daily-menu__status");
