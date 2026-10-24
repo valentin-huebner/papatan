@@ -563,11 +563,71 @@ button:hover, a.button:hover {
   border-radius: 10px;
   background: #fff;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  white-space: pre-wrap;
   text-align: left;
   line-height: 1.75;
 }
 
-.daily-menu__status {
-  color: #6e4a35;
+.lunch-special h2 {
+  margin: 0 0 1.5rem;
+  color: var(--primary);
+  font-size: 1.4rem;
+  text-align: center;
+}
+
+.lunch-special__item + .lunch-special__item {
+  margin-top: 1.75rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid rgba(110, 74, 53, 0.2);
+}
+
+.lunch-special__item h3 {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 0;
+  color: var(--primary);
+}
+
+.lunch-special__item p {
+  margin: 0.5rem 0;
+}
+
+.lunch-special__choice {
+  font-weight: 600;
+}
+
+.lunch-special__item ul {
+  margin: 0.25rem 0 0;
+  padding-left: 1.25rem;
+}
+
+.lunch-special__price {
+  flex: none;
+  white-space: nowrap;
+}
+
+.lunch-special__prices {
+  list-style: none;
+  padding-left: 0 !important;
+}
+
+.lunch-special__prices li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+@media (max-width: 480px) {
+  .daily-menu {
+    padding: 2rem 1rem;
+  }
+
+  .daily-menu__content {
+    padding: 1.25rem;
+  }
+
+  .lunch-special__item h3 {
+    flex-direction: column;
+    gap: 0.15rem;
+  }
 }
